@@ -1,25 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Cell, Grid} from "react-grata";
+
+const variations = {
+  fullHeight: {
+    matrix: [
+      ['hd', 'hd', 'hd'],
+      ['sl', 'bd', 'sr'],
+      ['ft', 'ft', 'ft'],
+    ],
+    rows: [
+      "200px",
+      "fit-height",
+      "200px",
+    ],
+    columns: ["100px", "1fr", "100px"],
+    rowGap: "12px",
+    columnGap: "12px"
+  }
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid {...variations.fullHeight}>
+      <Cell id='hd'>Header</Cell>
+      <Cell id='sl'>Side Left</Cell>
+      <Cell id='bd'>Body</Cell>
+      <Cell id='sr'>Side Right</Cell>
+      <Cell id='ft'>Footer</Cell>
+    </Grid>
   );
 }
 
