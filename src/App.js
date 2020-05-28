@@ -48,7 +48,7 @@ const variations = {
     matrix: [
       [1, 1, undefined],
       [undefined, 2, 2],
-      [3, undefined, 3],
+      [3, undefined, 4],
     ]
   }
 }
