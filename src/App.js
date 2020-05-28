@@ -136,16 +136,27 @@ const Others = ({layout}) => {
   )
 }
 
+const Header = () => (
+  <h1>Responsive Layout with &nbsp;
+    <a href="https://github.com/zhenyanghua/react-grata">
+      React-grata
+    </a>
+  </h1>
+);
+
 function App() {
   const [layout, setLayout] = useState(variations.blog)
   const et = layout.rows || layout.columns ? 'et' : 'mx';
   const matrix = [
+    ['hd', 'hd', 'hd'],
     ['sd', 'bd', 'bd'],
     ['mx', 'bd', 'bd'],
     [ et , 'bd', 'bd'],
   ]
+  const rows = ["auto", "1fr", "1fr", "1fr"];
   return (
-    <Grid className="page-grid" matrix={matrix} {...commons}>
+    <Grid className="page-grid" matrix={matrix} rows={rows} {...commons}>
+      <Cell id="hd"><Header /></Cell>
       <Cell id="sd"><Controls setLayout={setLayout}/></Cell>
       <Cell id="mx"><Matrix layout={layout} /></Cell>
       <Cell id="et"><Others layout={layout}/></Cell>

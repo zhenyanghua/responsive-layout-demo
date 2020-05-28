@@ -27,6 +27,7 @@ h3 {
   margin: .5rem;
 }
 .page-grid {
+  height: 100vh;
   background-color: #ffc800;
 }
 
@@ -36,8 +37,7 @@ h3 {
 }
 
 .example-grid {
-  height: 100vh;
-
+  height: 100%;
   background-color: #ffa5a5;
 }
 .example-grid .grata-cell {
