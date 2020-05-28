@@ -9,7 +9,7 @@
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.13.1",
-    "react-grata": "^1.0.5",
+    "react-grata": "^1.0.8",
     "react-scripts": "3.4.1"
   },
   "scripts": {

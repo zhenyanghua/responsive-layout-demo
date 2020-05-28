@@ -1,11 +1,70 @@
-.grata-grid {
+button {
+  font-size: 1.5rem;
+  width: 100%;
+  background-color: #ffa5a5;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: .5rem;
+}
+
+pre {
+  font-size: 1.5rem;
+  background-color: beige;
+  border-radius: .5rem;
+  padding: 1rem;
+  margin: .5rem;
+}
+
+h3 {
+  margin: .5rem;
+}
+.page-grid {
+  background-color: #ffc800;
+}
+
+.page-grid .grata-cell {
+  background-color: azure;
+  border-radius: .5rem;
+}
+
+.example-grid {
   height: 100vh;
 
-  background-color: antiquewhite;
+  background-color: #ffa5a5;
 }
-.grata-cell {
+.example-grid .grata-cell {
   background-color: aquamarine;
+  border: 2px dashed #ffffff;
+  border-radius: .5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 2rem;
+}
+
+.one {
+  color: blue;
+}
+.two {
+  color: red;
+}
+.three {
+  color: green;
+}
+.four {
+  color: #ff00dd;
+}
+.five {
+  color: sandybrown;
+}
+.comments {
+  color: #00a6ff;
 }
