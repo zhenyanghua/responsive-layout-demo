@@ -132,7 +132,7 @@ const Others = ({layout}) => {
             <code>rows</code>
           </h3>
           <pre>
-            rows: <br />["{layout.rows.join('", "')}"]<br />
+            ["{layout.rows.join('", "')}"]
           </pre>
         </>
       )
@@ -144,8 +144,8 @@ const Others = ({layout}) => {
               <code>columns</code>
             </h3>
             <pre>
-            columns: <br />["{layout.columns.join('", "')}"]<br />
-          </pre>
+              ["{layout.columns.join('", "')}"]
+            </pre>
           </>
         )
       }
