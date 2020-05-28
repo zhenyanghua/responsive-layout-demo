@@ -1,3 +1,8 @@
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 12px;
+  }
+}
 button {
   font-size: 1.5rem;
   width: 100%;
@@ -16,13 +21,15 @@ li {
 }
 
 pre {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   background-color: beige;
   border-radius: .5rem;
   padding: 1rem;
   margin: .5rem;
 }
-
+h1 {
+  margin: .5rem;
+}
 h3 {
   margin: .5rem;
 }
@@ -47,7 +54,7 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 
 .one {

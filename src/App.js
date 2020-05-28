@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import './App.css';
 import {Cell, Grid} from "react-grata";
+import { useMediaQuery } from 'react-responsive'
+import './App.css';
 
 const commons = {
   rowGap: "12px",
@@ -15,11 +16,11 @@ const variations = {
       [5, 5, 5],
     ],
     rows: [
-      "100px",
+      "20%",
       "fit-height",
-      "100px",
+      "20%",
     ],
-    columns: ["80px", "1fr", "80px"],
+    columns: ["20%", "1fr", "20%"],
   },
   crossOver: {
     ...commons,
@@ -104,7 +105,6 @@ const Matrix = ({layout}) => {
           return (
             <React.Fragment key={`row-${index}`}>
               <span>  [{row.map(x => x || ' ').map((x, i) => {
-                console.log(`x-${x}|`, row)
                 return (
                   <React.Fragment key={`${x}-${i}`}>
                     <span className={mapClass(x)}>{x}</span>
@@ -125,13 +125,30 @@ const Matrix = ({layout}) => {
 const Others = ({layout}) => {
   return (
     <>
-      <h3>
-        <code>rows & columns</code>
-      </h3>
-      <pre>
-        {layout.rows && <>rows: ["{layout.rows.join('", "')}"]<br /></>}
-        {layout.columns && <>columns: ["{layout.columns.join('", "')}"]<br /></>}
-      </pre>
+    {
+      layout.rows && (
+        <>
+          <h3>
+            <code>rows</code>
+          </h3>
+          <pre>
+            rows: <br />["{layout.rows.join('", "')}"]<br />
+          </pre>
+        </>
+      )
+    }
+      {
+        layout.columns && (
+          <>
+            <h3>
+              <code>columns</code>
+            </h3>
+            <pre>
+            columns: <br />["{layout.columns.join('", "')}"]<br />
+          </pre>
+          </>
+        )
+      }
     </>
   )
 }
@@ -146,21 +163,32 @@ const Header = () => (
 
 function App() {
   const [layout, setLayout] = useState(variations.blog)
+  const isMobile = useMediaQuery({ maxWidth: 800 })
   const et = layout.rows || layout.columns ? 'et' : 'mx';
-  const matrix = [
+  const matrixMobile = [
+    ['hd'],
+    ['bd'],
+    ['sd'],
+    ['mx'],
+    ['et'],
+  ];
+  const matrixOthers = [
     ['hd', 'hd', 'hd'],
     ['sd', 'bd', 'bd'],
     ['mx', 'bd', 'bd'],
     [ et , 'bd', 'bd'],
-  ]
-  const rows = ["auto", "1fr", "1fr", "1fr"];
+  ];
+  const rowsMobile = ["auto", "1fr", "1fr", "1fr", "1fr"];
+  const rowsOthers = ["auto", "1fr", "1fr", "1fr"];
+  const rows = isMobile ? rowsMobile : rowsOthers;
+  const matrix = isMobile ? matrixMobile : matrixOthers;
   return (
     <Grid className="page-grid" matrix={matrix} rows={rows} {...commons}>
       <Cell id="hd"><Header /></Cell>
+      <Cell id="bd"><Example layout={layout}/></Cell>
       <Cell id="sd"><Controls setLayout={setLayout}/></Cell>
       <Cell id="mx"><Matrix layout={layout} /></Cell>
       <Cell id="et"><Others layout={layout}/></Cell>
-      <Cell id="bd"><Example layout={layout}/></Cell>
     </Grid>
   );
 }
